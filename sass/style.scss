@@ -1,0 +1,57 @@
+/*
+Theme Name: nathaliemota
+Theme URI: http://localhost/nathalie-mota
+Author: Olivier Jargoyhen
+Author URI: ...
+Description: Thème pour le site de la photographe Nathalie Mota
+Version: 1.0
+Tags: photographe, Nathalie Mota.
+Text Domain: nathaliemota
+*/
+
+/****Général******/
+/****Couleurs****/
+:root{
+    --menu-nav-color:#000000;
+}
+
+
+/*****Header*****/
+#nav-bar{
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+    justify-content: space-between;
+    padding: 0px 145px;
+    #logo-nav{
+        object-fit: none;
+        width: 216px;
+    }
+    #navigation{
+        display: flex;
+        justify-content: center;
+        .menu-menu-header-container{
+            display: flex;
+            justify-content: center;
+            #primary-menu{
+                display: flex;
+                flex-direction: row;
+                list-style-type: none;
+                margin: 0px;
+                align-items: center;
+                a{
+                    text-decoration: none;
+                    font-size: 16px;            
+                    color: var(--menu-nav-color);
+                    text-transform: uppercase;
+                    margin-left: 45px;
+                }
+                a:hover{
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+    
+}
+
