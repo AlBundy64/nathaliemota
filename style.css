@@ -1,0 +1,73 @@
+@charset "UTF-8";
+/*
+Theme Name: nathaliemota
+Theme URI: http://localhost/nathalie-mota
+Author: Olivier Jargoyhen
+Author URI: ...
+Description: Thème pour le site de la photographe Nathalie Mota
+Version: 1.0
+Tags: photographe, Nathalie Mota.
+Text Domain: nathaliemota
+*/
+/****Général******/
+/****Couleurs****/
+:root {
+  --menu-nav-color:#000000;
+  font-family: SpaceMono;
+}
+
+/******** Fonts **********/
+/* SpaceMono-regular */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "SpaceMono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("assets/fonts/SpaceMono-Regular.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/* SpaceMono-bold */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "SpaceMono";
+  font-style: normal;
+  font-weight: 700;
+  src: url("assets/fonts/SpaceMono-Bold.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+/*****Header*****/
+#nav-bar {
+  display: flex;
+  flex-direction: row;
+  height: 80px;
+  justify-content: space-between;
+  padding: 0px 145px;
+}
+#nav-bar #logo-nav {
+  -o-object-fit: none;
+     object-fit: none;
+  width: 216px;
+}
+#nav-bar #navigation {
+  display: flex;
+  justify-content: center;
+}
+#nav-bar #navigation .menu-menu-header-container {
+  display: flex;
+  justify-content: center;
+}
+#nav-bar #navigation .menu-menu-header-container #primary-menu {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  margin: 0px;
+  align-items: center;
+}
+#nav-bar #navigation .menu-menu-header-container #primary-menu a {
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--menu-nav-color);
+  text-transform: uppercase;
+  margin-left: 45px;
+}
+#nav-bar #navigation .menu-menu-header-container #primary-menu a:hover {
+  font-weight: 700;
+}
