@@ -10,6 +10,10 @@ Tags: photographe, Nathalie Mota.
 Text Domain: nathaliemota
 */
 /****Général******/
+body {
+  margin: 0px;
+}
+
 /****Couleurs****/
 :root {
   --menu-nav-color:#000000;
@@ -40,6 +44,7 @@ Text Domain: nathaliemota
   height: 80px;
   justify-content: space-between;
   padding: 0px 145px;
+  box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.031372549);
 }
 #nav-bar #logo-nav {
   -o-object-fit: none;
@@ -70,4 +75,25 @@ Text Domain: nathaliemota
 }
 #nav-bar #navigation .menu-menu-header-container #primary-menu a:hover {
   font-weight: 700;
+}
+
+#menu-menu-footer {
+  display: flex;
+  flex-direction: row;
+  height: 40px;
+  justify-content: center;
+  margin: 0px;
+  list-style-type: none;
+  gap: 10%;
+  align-items: center;
+}
+#menu-menu-footer a {
+  text-decoration: none;
+  font-size: 16px;
+  color: var(--menu-nav-color);
+  text-transform: uppercase;
+}
+#menu-menu-footer #menu-item-37 a {
+  pointer-events: none;
+  cursor: default;
 }

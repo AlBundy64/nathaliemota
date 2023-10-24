@@ -25,4 +25,10 @@ function register_my_menu(){
 }
 add_action( 'after_setup_theme', 'register_my_menu' );
 
+ /****fonction création menu footer */
+
+ function register_my_footer_menu(){
+  register_nav_menu( 'footer-menu', 'Menu pied de page' );
+}
+add_action( 'after_setup_theme', 'register_my_footer_menu' );
 ?>
