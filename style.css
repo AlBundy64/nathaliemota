@@ -66,14 +66,15 @@ body {
   margin: 0px;
   align-items: center;
 }
-#nav-bar #navigation .menu-menu-header-container #primary-menu a {
+#nav-bar #navigation .menu-menu-header-container #primary-menu a, #nav-bar #navigation .menu-menu-header-container #primary-menu .contact-btn {
   text-decoration: none;
   font-size: 16px;
   color: var(--menu-nav-color);
   text-transform: uppercase;
   margin-left: 45px;
+  cursor: pointer;
 }
-#nav-bar #navigation .menu-menu-header-container #primary-menu a:hover {
+#nav-bar #navigation .menu-menu-header-container #primary-menu a:hover, #nav-bar #navigation .menu-menu-header-container #primary-menu .contact-btn:hover {
   font-weight: 700;
 }
 

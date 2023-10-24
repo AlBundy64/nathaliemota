@@ -8,7 +8,7 @@ function theme_enqueue_styles() {
 
 add_action('wp_enqueue_scripts', 'theme_enqueue_scripts');
 function theme_enqueue_scripts(){
-    wp_enqueue_script( 'scripts', get_template_directory_uri() . '/script.js', array(), false, true );
+    wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/script.js', array(), false, true );
 }
 
 /**** Fonts ****/
@@ -24,6 +24,18 @@ function register_my_menu(){
   register_nav_menu( 'main-menu', 'Menu principal' );
 }
 add_action( 'after_setup_theme', 'register_my_menu' );
+
+/**** création bouton de contact dans menu principal */
+function contact_btn( $items, $args ) {
+  if( $args->theme_location == 'main-menu' ){
+    $items .= '	<li id="contact-btn-li">'
+                    .'<div class="contact-btn">Nous contacter</div>'
+                .'</li>';
+  }
+  return $items;
+}
+
+add_filter( 'wp_nav_menu_items', 'contact_btn', 10, 2 );
 
  /****fonction création menu footer */
 

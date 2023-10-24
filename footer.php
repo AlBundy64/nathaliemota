@@ -1,4 +1,5 @@
         <footer>
+            <?php get_template_part( 'template-parts/modale-contact' );?>
             <?php
             wp_nav_menu(
             array(
