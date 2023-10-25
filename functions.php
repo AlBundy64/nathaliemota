@@ -29,7 +29,7 @@ add_action( 'after_setup_theme', 'register_my_menu' );
 function contact_btn( $items, $args ) {
   if( $args->theme_location == 'main-menu' ){
     $items .= '	<li id="contact-btn-li">'
-                    .'<div class="contact-btn">Nous contacter</div>'
+                    .'<div id="contact-btn">Nous contacter</div>'
                 .'</li>';
   }
   return $items;

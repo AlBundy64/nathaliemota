@@ -1,37 +1,18 @@
 <!-- Ajout de la modale de contact -->
+<!-- The Modal -->
+<div id="contact-modal">
 
-<div class="popup-overlay">
-	<div class="popup-salon">
-		<div class="popup-header">
-			<h3><?php echo $titre; ?> </h3>
-			<span class="popup-close"><i class="fa fa-times"></i></span>
-		</div>
-		<?php echo $description; ?>
-		<div class="popup-details">
-			<div class="popup-address">
-				<p><b>Le lieu</b></p>
-				<?php echo $lieu; ?>
-				<a class="popup-link" href="<?php echo $lien; ?>" target="_blank">Voir sur Google Maps</a>
-			</div>
-			<div class="popup-address">
-				<p><b>La date</b></p>
-				<?php echo $date; ?>
-			</div>
-		</div>
-		<p class="popup-informations">Vous souhaitez plus d'informations concernant cet événement ?</p>
-		<?php
+    <!-- Modal content -->
+    <div class="modal-content">
+        <h2 class="modal-title">
+            <img id="contact-logo" src="<?php echo get_template_directory_uri() . '/assets/images/contact-logo.png';?>" alt="logo formulaire de contact Nathalie Mota, photographe"/>
+        </h2>
+        <?php
 		// On insère le formulaire de demandes de renseignements
-		echo do_shortcode('[contact-form-7 id="910" title="Formulaire salon New York"]');
+		echo do_shortcode('[contact-form-7 id="b3188e8" title="Formulaire de contact 1"]');
 		?>
 	</div>
 </div>
 
-<!-- Code pour fermer la popup -->
+		
 
-<script>
-
-jQuery('.popup-close').click(function(){
-	jQuery(this).parent().parent().parent().hide();
-});
-
-</script>
