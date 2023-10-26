@@ -17,6 +17,8 @@ body {
 /****Couleurs****/
 :root {
   --menu-nav-color:#000000;
+  --submit-backround-color:#D8D8D8;
+  --submit-backround-hover:#000000;
   font-family: SpaceMono;
 }
 
@@ -133,17 +135,6 @@ body {
   background-color: white;
   margin: auto;
 }
-#contact-modal .modal-content .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-#contact-modal .modal-content .close:hover {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
 #contact-modal .modal-content .modal-title {
   width: 100%;
   display: flex;
@@ -186,11 +177,46 @@ body {
   border: 1px solid #B8BBC2;
   margin-top: 3px;
 }
-#wpcf7-f42-o1 .wpcf7-form .wpcf7-submit {
+
+/*****Animation et comportements boutons ****/
+@keyframes btn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.btn {
   border-radius: 2px;
   height: 50px;
-  background-color: #D8D8D8;
+  width: 100%;
+  background-color: var(--submit-backround-color);
   font-family: SpaceMono;
   color: #000000;
   border: none;
+  box-shadow: 0px 2px 1px 0px rgba(0, 0, 0, 0.0078431373);
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 2px;
+  background-color: var(--submit-backround-hover);
+  color: #ffffff;
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 500ms;
+}
+.btn:hover {
+  color: #ffffff;
+}
+.btn:hover::after {
+  opacity: 1;
 }
