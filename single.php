@@ -15,7 +15,7 @@ get_header();
         <p class="post-info">
           Posté le <?php the_date(); ?> dans <?php the_category(', '); ?> par <?php the_author(); ?>.
         </p>
-        <div class="post-content">
+        <div class="">
           <?php the_content(); ?>
         </div>
         <div class="post-comments">
