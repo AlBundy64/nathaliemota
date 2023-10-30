@@ -12,6 +12,14 @@ Text Domain: nathaliemota
 /****Général******/
 body {
   margin: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.page {
+  width: 100%;
+  max-width: 1440px;
 }
 
 /****Couleurs****/
@@ -39,6 +47,14 @@ body {
   font-weight: 700;
   src: url("assets/fonts/SpaceMono-Bold.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+/* SpaceMono-italic */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "SpaceMono";
+  font-style: italic;
+  font-weight: 400;
+  src: url("assets/fonts/SpaceMono-Italic.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
 /* Poppins-Medium */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -53,7 +69,7 @@ body {
   flex-direction: row;
   height: 80px;
   justify-content: space-between;
-  padding: 0px 145px;
+  padding: 0% 10%;
   box-shadow: 0px 4px 14px 10px rgba(0, 0, 0, 0.031372549);
 }
 #nav-bar #logo-nav {
@@ -219,4 +235,91 @@ body {
 }
 .btn:hover::after {
   opacity: 1;
+}
+
+/*****Single Photos******/
+/****Blocs infos et photo*****/
+.post-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.post-content .info-photo-bloc {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
+  gap: 20px;
+  width: 80%;
+}
+.post-content .info-photo-bloc #info-bloc {
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  text-transform: uppercase;
+  padding-bottom: 23px;
+  margin-bottom: 1px;
+  border-bottom: 1px solid #000000;
+}
+.post-content .info-photo-bloc #info-bloc .post-title {
+  font-style: italic;
+  font-size: 66px;
+  line-height: 58px;
+  font-weight: 400;
+  width: 50%;
+  margin: 0px;
+}
+.post-content .info-photo-bloc #info-bloc .post-info {
+  font-size: 14px;
+  line-height: 200%;
+}
+.post-content .info-photo-bloc #photo-bloc {
+  width: 50vw;
+}
+.post-content .info-photo-bloc #photo-bloc img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+.post-content #photo-cta-bloc {
+  height: 118px;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.post-content #photo-cta-bloc #cta-div {
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.post-content #photo-cta-bloc #photo-nav-div {
+  width: 50vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap {
+  width: 81px;
+  padding-top: 5px;
+}
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #img-nav {
+  width: 100%;
+  height: 71px;
+}
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #img-nav img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #arrow-nav {
+  height: 42px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
