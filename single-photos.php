@@ -55,7 +55,7 @@ get_header();
           <div id="photo-cta-bloc">
             <div id="cta-div">
               <p>Cette photo vous intéresse?</p>
-              <button>Contact</button>
+              <button class="btn">Contact</button>
             </div>
             <div id="photo-nav-div">
               <div id="photo-nav-wrap">
@@ -69,8 +69,23 @@ get_header();
               </div>
             </div>
           </div>
-         </div>
-        <!-- zone de photos apparentées -->
+          <!-- zone de photos apparentées -->
+          <div id="photos-apparantees">
+            <h2>Vous aimerez aussi</h2>
+            <div class="photo-bloc-dbl">
+              <div class="photo-container">
+                <?php the_post_thumbnail();?>
+              </div>
+              <div class="photo-container">
+                <?php the_post_thumbnail();?>
+              </div>
+            </div> 
+            <div class="charger-div">
+              <button class="btn">Toutles les photos</button>
+            </div>
+          </div>
+        </div>
+        
       </div>
     <?php endwhile; ?>
   <?php endif; ?>
