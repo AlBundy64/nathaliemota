@@ -39,7 +39,7 @@ get_header();
             <div id="info-bloc">
                 <h1 class="post-title"><?php the_title(); ?></h1>
                 <p class="post-info">
-                  Référence : <?php echo $reference; ?> </br>
+                  Référence : <span id="ref"><?php echo $reference; ?> </span> </br>
                   Catégorie : <?php echo $categorie ?> </br>
                   Format : <?php echo $format?> </br>
                   Type : <?php echo $type; ?> </br>
@@ -55,7 +55,7 @@ get_header();
           <div id="photo-cta-bloc">
             <div id="cta-div">
               <p>Cette photo vous intéresse?</p>
-              <button class="btn">Contact</button>
+              <button id="contact-btn-photo" class="btn">Contact</button>
             </div>
             <div id="photo-nav-div">
               <div id="photo-nav-wrap">
@@ -63,7 +63,9 @@ get_header();
                   <?php the_post_thumbnail('thumbnail'); ?>
                 </div>
                 <div id="arrow-nav">
+                  <a href="<?php ?>">
                   <img src="<?php echo get_template_directory_uri() . '/assets/images/nav-arrow-left.png';?>" alt="image d'une fleche de navigation"/>
+                </a>
                   <img src="<?php echo get_template_directory_uri() . '/assets/images/nav-arrow-right.png';?>" alt="image d'une fleche de navigation"/>
                 </div>
               </div>
@@ -72,16 +74,9 @@ get_header();
           <!-- zone de photos apparentées -->
           <div id="photos-apparantees">
             <h2>Vous aimerez aussi</h2>
-            <div class="photo-bloc-dbl">
-              <div class="photo-container">
-                <?php the_post_thumbnail();?>
-              </div>
-              <div class="photo-container">
-                <?php the_post_thumbnail();?>
-              </div>
-            </div> 
+            <?php get_template_part('template-parts/photo_block')?>
             <div class="charger-div">
-              <button class="btn">Toutles les photos</button>
+              <button class="btn">Toutes les photos</button>
             </div>
           </div>
         </div>
