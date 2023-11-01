@@ -188,15 +188,15 @@ body {
 }
 #wpcf7-f42-o1 .wpcf7-form input {
   width: 100%;
-  padding: 0;
   height: 40px;
   border-radius: 8px;
   border: 1px solid #B8BBC2;
   margin-top: 3px;
+  padding: 0px 10px;
 }
 #wpcf7-f42-o1 .wpcf7-form .wpcf7-textarea {
   width: 100%;
-  padding: 0;
+  padding: 0px 10px;
   height: 210px;
   border-radius: 8px;
   border: 1px solid #B8BBC2;
@@ -275,7 +275,7 @@ body {
   font-size: 66px;
   line-height: 58px;
   font-weight: 400;
-  width: 60%;
+  width: 70%;
   margin: 0px;
 }
 .post-content .info-photo-bloc #info-bloc .post-info {
