@@ -33,3 +33,36 @@ inputRef.value = refValue;
 btnPhoto.onclick = function() {
     modal.style.display = "flex";
 }
+
+
+// Navigation single-photos
+// On récupère les photos dans la bonne div
+let imgNav = document.getElementById("photo-prev-div").innerHTML;
+let imgContainer = document.getElementById("photo-nav-container");
+imgContainer.innerHTML = imgNav;
+
+
+let imgNavNext = document.getElementById("photo-next-div").innerHTML;
+let imgContainerNext = document.getElementById("photo-nav-container-next");
+imgContainerNext.innerHTML = imgNavNext;
+
+// On les fait apparaitre au survol des flèches de navigation
+let arrowPrev = document.getElementById("arrow-prev");
+let arrowNext = document.getElementById("arrow-next");
+
+arrowPrev.onmouseover = function() {
+    imgContainer.style.display = "flex";
+}
+arrowNext.onmouseover = function() {
+    imgContainerNext.style.display = "flex";
+}
+// Et on les fait disparaitre
+arrowPrev.onmouseout = function() {
+    imgContainer.style.display = "none";
+}
+arrowNext.onmouseout = function() {
+    imgContainerNext.style.display = "none";
+}
+
+
+

@@ -323,11 +323,27 @@ body {
   width: 81px;
   padding-top: 5px;
 }
-.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #img-nav {
-  width: 100%;
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #photo-nav-container-wrap {
+  width: 81px;
   height: 71px;
 }
-.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #img-nav img {
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #photo-nav-container-wrap #photo-nav-container {
+  display: none;
+  width: 81px;
+  height: 71px;
+}
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #photo-nav-container-wrap #photo-nav-container img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #photo-nav-container-wrap #photo-nav-container-next {
+  display: none;
+  width: 81px;
+  height: 71px;
+}
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #photo-nav-container-wrap #photo-nav-container-next img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
@@ -339,6 +355,18 @@ body {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #arrow-nav #arrow-prev #photo-prev-div {
+  display: none;
+}
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #arrow-nav #arrow-prev img {
+  width: 25px;
+}
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #arrow-nav #arrow-next #photo-next-div {
+  display: none;
+}
+.post-content #photo-cta-bloc #photo-nav-div #photo-nav-wrap #arrow-nav #arrow-next img {
+  width: 25px;
 }
 
 /****Bloc photos apparentées****/

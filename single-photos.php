@@ -48,36 +48,107 @@ get_header();
             </div>
             <!-- Bloc photo -->
             <div id="photo-bloc">
-              <?php the_post_thumbnail(); ?>
+              <?php the_post_thumbnail();?>
             </div>
           </div> 
           <!-- Bloc cta et nav -->
-          <div id="photo-cta-bloc">
+          <div id="photo-cta-bloc">    
             <div id="cta-div">
               <p>Cette photo vous intéresse?</p>
               <button id="contact-btn-photo" class="btn">Contact</button>
             </div>
             <div id="photo-nav-div">
-
               <div id="photo-nav-wrap">
-                <div id="img-nav">
-                  <?php the_post_thumbnail('thumbnail'); ?>
+                <div id="photo-nav-container-wrap">
+                  <div id="photo-nav-container"> <!-- Container où apparaît la mignature du post précédent -->
+                  </div>
+                  <div id="photo-nav-container-next"> <!-- Container où apparaît la mignature du post suivant -->
+                  </div>
                 </div>
                 <div id="arrow-nav">
-                  <a href="">
-                    <img src="<?php echo get_template_directory_uri() . '/assets/images/nav-arrow-left.png';?>" alt="image d'une fleche de navigation"/>
-                  </a>
-                  <a href="">
-                   <img src="<?php echo get_template_directory_uri() . '/assets/images/nav-arrow-right.png';?>" alt="image d'une fleche de navigation"/>
-                  </a>
+                  <div id="arrow-prev">
+                  <?php 
+                      // 1. On définit les arguments pour définir ce que l'on souhaite récupérer
+                      $args1 = array(
+                          'post_type' => 'photos',
+                          'posts_per_page' => -1,
+                          'order' => 'DESC',
+                          'orderby' => 'meta_value_num ID', // Rangé selon un champ personnalisé
+                          'meta_key' => 'annee', // C'est ici qu'on indique quel est ce champ
+                          
+                      );
+                      $id_photo2 = 0;
+                      $current_post_slug = get_post_field( 'post_name', get_post() );
+                      // 2. On exécute la WP Query
+                      $my_query = new WP_Query( $args1 );
+                      
+                    if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();
+                        $post_slug = get_post_field( 'post_name', get_post() );
+                        $id_photo2 = $id_photo2 + 1;
+                        if ($current_post_slug == $post_slug){
+                          $current_photo_id2 = $id_photo2;
+                          
+                        }
+                        if ($id_photo2 == $current_photo_id2 +1 && $id_photo2 != 1){
+                          ?>
+                          <div id="photo-prev-div" class=""> <?php the_post_thumbnail('thumbnail');?> </div>
+                          <a href="http://localhost/nathalie-mota/photos/<?php echo $post_slug;?>">
+                            <img src="<?php echo get_template_directory_uri() . '/assets/images/big-nav-arrow-left.png';?>" alt="image d'une fleche de navigation"/>
+                          </a>
+                          <?php
+                        }
+                      endwhile;
+                    endif;
+                    // 4. On réinitialise à la requête principale (important)
+                    wp_reset_postdata();
+                    ?>
+                  </div>
+                  <div id="arrow-next">
+                  <?php 
+                      // 1. On définit les arguments pour définir ce que l'on souhaite récupérer
+                      $args2 = array(
+                          'post_type' => 'photos',
+                          'posts_per_page' => -1,
+                          'order' => 'ASC',
+                          'orderby' => 'meta_value_num ID', // Rangé selon un champ personnalisé
+                          'meta_key' => 'annee', // C'est ici qu'on indique quel est ce champ
+                          
+                      );
+                      $id_photo = 0;
+                      $current_post_slug = get_post_field( 'post_name', get_post() );
+                      // 2. On exécute la WP Query
+                      $my_query = new WP_Query( $args2 );
+                      
+                    if( $my_query->have_posts() ) : while( $my_query->have_posts() ) : $my_query->the_post();
+                        $post_slug = get_post_field( 'post_name', get_post() );
+                        $id_photo = $id_photo + 1;
+                        if ($current_post_slug == $post_slug){
+                          $current_photo_id = $id_photo;
+                        }
+                        if ($id_photo == $current_photo_id +1 && $id_photo != 1){
+                          ?>
+                          <div id="photo-next-div" class=""> <?php the_post_thumbnail('thumbnail');?> </div>
+                          <a href="http://localhost/nathalie-mota/photos/<?php echo $post_slug;?>">
+                            <img src="<?php echo get_template_directory_uri() . '/assets/images/big-nav-arrow-right.png';?>" alt="image d'une fleche de navigation"/>
+                          </a>
+                          <?php 
+                        }
+                      endwhile;
+                    endif;
+                    // 4. On réinitialise à la requête principale (important)
+                    wp_reset_postdata();
+                    ?>
+                    
+                  </div>
                 </div>
               </div>
+             
             </div>
           </div>
           <!-- zone de photos apparentées -->
           <?php 
             // 1. On définit les arguments pour définir ce que l'on souhaite récupérer
-            $args = array(
+            $args3 = array(
                 'post_type' => 'photos',
                 'post__not_in' => [get_the_ID()],
                 'posts_per_page' => 2,
@@ -92,7 +163,7 @@ get_header();
             );
 
             // 2. On exécute la WP Query
-            $my_query = new WP_Query( $args );
+            $my_query = new WP_Query( $args3 );
             ?>
 
           <div id="photos-apparantees">
