@@ -46,6 +46,14 @@ body{
     font-weight: 700;
     src: url('assets/fonts/SpaceMono-Bold.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
   }
+  /* SpaceMono-bold-italic */
+@font-face {
+    font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+    font-family: 'SpaceMono';
+    font-style: italic;
+    font-weight: 700;
+    src: url('assets/fonts/SpaceMono-BoldItalic.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  }
   /* SpaceMono-italic */
 @font-face {
     font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
@@ -416,3 +424,33 @@ body{
     }
 }
 
+/**** Accueil ****/
+#accueil-container{
+    #hero{
+        display: flex;
+        width: 100%;
+        height: 962px;
+        position: relative;
+        img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+        #accueil-title-div{
+            display: flex;
+            z-index: 1;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            h1{
+                margin:auto;
+                font-weight: 700;
+                font-size: 96px;
+                font-style: italic;
+                text-transform: uppercase;
+                -webkit-text-stroke: 3px #ffffff;
+                color: transparent;
+            }
+        }
+    }
+}
