@@ -455,12 +455,18 @@ body {
 }
 #accueil-container #catalogue-container {
   display: flex;
+  flex-direction: column;
   width: 80%;
 }
-#accueil-container #catalogue-container #catalogue-photo-container {
+#accueil-container #catalogue-container .catalogue-photo-container {
   width: 100%;
   display: flex;
   flex-direction: row;
   gap: 20px 1.75%;
   flex-wrap: wrap;
+}
+
+/**** Test ****/
+#div-for-ajax {
+  display: none;
 }

@@ -20,49 +20,57 @@ window.onclick = function(event) {
 
 // Modale depuis le bouton de contact de single-photos
 // Get the button that opens the modal
-let btnPhoto = document.getElementById("contact-btn-photo");
-// On récupère le champ référence de la modale"
-let inputRef = document.getElementById("ref-photo");
-// puis la valeur voulue
-let refValue= document.getElementById("ref").innerHTML;
-//pour l'afficher dans le champ du formulaire
-inputRef.value = refValue;
-
-
-// When the user clicks on the button, open the modal
-btnPhoto.onclick = function() {
-    modal.style.display = "flex";
+if (document.getElementById("contact-btn-photo")){
+    let btnPhoto = document.getElementById("contact-btn-photo");
+    // On récupère le champ référence de la modale"
+    let inputRef = document.getElementById("ref-photo");
+    // puis la valeur voulue
+    let refValue= document.getElementById("ref").innerHTML;
+    //pour l'afficher dans le champ du formulaire
+    inputRef.value = refValue;
+    // When the user clicks on the button, open the modal
+    btnPhoto.onclick = function() {
+        modal.style.display = "flex";
+    }
 }
+
+
+
 
 
 // Navigation single-photos
 // On récupère les photos dans la bonne div
-let imgNav = document.getElementById("photo-prev-div").innerHTML;
-let imgContainer = document.getElementById("photo-nav-container");
-imgContainer.innerHTML = imgNav;
+if (document.getElementById("photo-prev-div")){
+    let imgNav = document.getElementById("photo-prev-div").innerHTML;
+    let imgContainer = document.getElementById("photo-nav-container");
+    imgContainer.innerHTML = imgNav;
+    // On les fait apparaitre au survol des flèches de navigation
+    let arrowPrev = document.getElementById("arrow-prev");
+    arrowPrev.onmouseover = function() {
+        imgContainer.style.display = "flex";
+    }
+    // Et on les fait disparaitre
+    arrowPrev.onmouseout = function() {
+        imgContainer.style.display = "none";
+    }
+}
+
+if (document.getElementById("photo-next-div")){
+    let imgNavNext = document.getElementById("photo-next-div").innerHTML;
+    let imgContainerNext = document.getElementById("photo-nav-container-next");
+    imgContainerNext.innerHTML = imgNavNext;
+    // On les fait apparaitre au survol des flèches de navigation
+    let arrowNext = document.getElementById("arrow-next");
+    arrowNext.onmouseover = function() {
+        imgContainerNext.style.display = "flex";
+    }
+    // Et on les fait disparaitre
+    arrowNext.onmouseout = function() {
+        imgContainerNext.style.display = "none";
+    }
+}
 
 
-let imgNavNext = document.getElementById("photo-next-div").innerHTML;
-let imgContainerNext = document.getElementById("photo-nav-container-next");
-imgContainerNext.innerHTML = imgNavNext;
-
-// On les fait apparaitre au survol des flèches de navigation
-let arrowPrev = document.getElementById("arrow-prev");
-let arrowNext = document.getElementById("arrow-next");
-
-arrowPrev.onmouseover = function() {
-    imgContainer.style.display = "flex";
-}
-arrowNext.onmouseover = function() {
-    imgContainerNext.style.display = "flex";
-}
-// Et on les fait disparaitre
-arrowPrev.onmouseout = function() {
-    imgContainer.style.display = "none";
-}
-arrowNext.onmouseout = function() {
-    imgContainerNext.style.display = "none";
-}
 
 
 
