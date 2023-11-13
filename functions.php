@@ -56,28 +56,69 @@ add_action( 'wp_ajax_nathaliemota_loadmore_photos', 'nathaliemota_loadmore_photo
 add_action( 'wp_ajax_nopriv_nathaliemota_loadmore_photos', 'nathaliemota_loadmore_photos' );
 
 function nathaliemota_loadmore_photos(){
-            $perPage = 12;
+            
             
             // 1. On définit les arguments pour définir ce que l'on souhaite récupérer
             $args2 = array(
                 'post_type' => 'photos',
-                'posts_per_page' => $perPage,
-                'paged' => $_POST['paged'],                 
+                'posts_per_page' => $_POST['nbOfPosts'],
+                'order' => $_POST['perDate'],
+                'orderby' => 'meta_value_num ID', // Rangé selon un champ personnalisé, puis par ID
+                'meta_key' => 'annee', // C'est ici qu'on indique quel est ce champ                     
             );
             // 2. On exécute la WP Query
             $ajaxPosts = new WP_Query( $args2 );
             $response = '';
             // 3. Boucle   
-            if( $ajaxPosts->have_posts() ) {
+            if( $ajaxPosts->have_posts() ) {?>
+              <div class="catalogue-photo-container">
+                  <?php 
                     while( $ajaxPosts->have_posts() ) : $ajaxPosts->the_post();
                       $response .= get_template_part('template-parts/photo_block');
                     endwhile;
-                }else{
-                  $response = '';
-                }
-                echo $response;
-                exit;
+                    ?>
+              </div>
+            <?php
+            }else{
+              $response = '';
+            }
+            echo $response;
+            exit;
 }
+
+add_action( 'wp_ajax_tri_par_date', 'tri_par_date' );
+add_action( 'wp_ajax_tri_par_date', 'tri_par_date' );
+
+function tri_par_date(){
+            
+              // 1. On définit les arguments pour définir ce que l'on souhaite récupérer
+              $args2 = array(
+                  'post_type' => 'photos',
+                  'posts_per_page' => $_POST['nbOfPosts'],                  
+                  'order' => $_POST['perDate'],
+                  'orderby' => 'meta_value_num ID', // Rangé selon un champ personnalisé, puis par ID
+                  'meta_key' => 'annee', // C'est ici qu'on indique quel est ce champ                     
+              );
+              // 2. On exécute la WP Query
+              $ajaxPosts = new WP_Query( $args2 );
+              $response = '';
+              // 3. Boucle   
+              if( $ajaxPosts->have_posts() ) {?>
+                <div class="catalogue-photo-container">
+                    <?php 
+                      while( $ajaxPosts->have_posts() ) : $ajaxPosts->the_post();
+                        $response .= get_template_part('template-parts/photo_block');
+                      endwhile;
+                      ?>
+                </div>
+              <?php
+              }else{
+                    $response = '';
+                  }
+                  echo $response;
+                  exit;
+}
+
 
 
 ?>
