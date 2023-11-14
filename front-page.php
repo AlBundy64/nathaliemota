@@ -30,12 +30,42 @@ get_header();
             <div id="selects-div">
                
                 <div id="tax-selects-div">
-
+                <?php   $categorie_list = get_terms('categorie');
+                        $format_list = get_terms('format');
+                        $types ='';
+                        foreach($format_list as $format_single) {
+                            $types .= ($format_single->name).', ';
+                        }
+                        $formatTypes = rtrim($types, ', ');
+                        $types ='';
+                        foreach($categorie_list as $categorie_single) {
+                            $types .= ($categorie_single->name).', ';
+                        }
+                        $categorieTypes = rtrim($types, ', ');
+                ?>      
+                    <select name="categorie-select" id="categorie-slct">
+                                    <option value="<?php echo $categorieTypes; ?>">Catégories</option>
+                        <?php   foreach($categorie_list as $categorie_single) {
+                        ?>
+                                    <option value = "<?php echo $categorie_single->name?>"><?php echo $categorie_single->name?></option>
+                        <?php
+                                }
+                        ?>
+                    </select>
+                    <select name="format-select" id="format-slct">
+                                    <option value="<?php echo $formatTypes; ?>">Formats</option>
+                        <?php   foreach($format_list as $format_single) {
+                        ?>
+                                    <option value = "<?php echo $format_single->name?>"><?php echo $format_single->name?></option>
+                        <?php
+                                }
+                        ?>
+                    </select>
                 </div>
                 <div id="tri-selects-div">
                     
                         <select name="tri-date-select" id="tri-date-slct">
-                        <option value="">Trier par</option>
+                        <option value="DESC">Trier par</option>
                         <option value="DESC">Des plus récentes aux plus anciennes</option>
                         <option value="ASC">Des plus anciennes aux plus récentes</option>
                         </select> 
@@ -47,12 +77,13 @@ get_header();
                 <?php 
                 $perDate= 'DESC'; // Ordre des photos selon leur date de prise de vue
                 $nbOfPosts = 12; // Nombre de photos dans le catalogue
-                $nbNewPosts = 2; // Nombre de nouvelles photos en cliquant
-                $perPage = 12; 
+                $nbNewPosts = 12; // Nombre de nouvelles photos en cliquant              
                 ?>
                 <input type="hidden" name="order-date" value="<?php echo $perDate; ?>">
                 <input type="hidden" name="nb-posts" value="<?php echo $nbOfPosts; ?>">
                 <input type="hidden" name="nb-new-posts" value="<?php echo $nbNewPosts; ?>">
+                <input type="hidden" name="categorie" value="<?php echo $categorieTypes; ?>">
+                <input type="hidden" name="format" value="<?php echo $formatTypes; ?>">
                 <?php 
                 
                          

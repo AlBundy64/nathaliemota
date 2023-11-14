@@ -27,7 +27,7 @@ get_header();
         $format_list = get_the_terms($post->ID, 'format'); //pour la taxonomie format
         $types ='';
         foreach($format_list as $format_single) {
-            $types .= ucfirst($format_single->name).', ';
+            $types .= ($format_single->name).', ';
         }
         $format = rtrim($types, ', ');
 

@@ -64,7 +64,19 @@ function nathaliemota_loadmore_photos(){
                 'posts_per_page' => $_POST['nbOfPosts'],
                 'order' => $_POST['perDate'],
                 'orderby' => 'meta_value_num ID', // Rangé selon un champ personnalisé, puis par ID
-                'meta_key' => 'annee', // C'est ici qu'on indique quel est ce champ                     
+                'meta_key' => 'annee', // C'est ici qu'on indique quel est ce champ 
+                'tax_query' => [
+                  [
+                    'taxonomy' => 'categorie',
+                    'field' => 'slug',
+                    'terms' => $_POST['categorie'],
+                  ],
+                  [
+                    'taxonomy' => 'format',
+                    'field' => 'slug',
+                    'terms' => $_POST['format'],
+                  ]
+                ]                                  
             );
             // 2. On exécute la WP Query
             $ajaxPosts = new WP_Query( $args2 );
@@ -80,14 +92,17 @@ function nathaliemota_loadmore_photos(){
               </div>
             <?php
             }else{
-              $response = '';
+              $response = '<div class="catalogue-photo-container"></div>';
             }
             echo $response;
             exit;
+            wp_reset_postdata();
 }
 
+/**** Fonction tri par date ****/
+
 add_action( 'wp_ajax_tri_par_date', 'tri_par_date' );
-add_action( 'wp_ajax_tri_par_date', 'tri_par_date' );
+add_action( 'wp_ajax_nopriv_tri_par_date', 'tri_par_date' );
 
 function tri_par_date(){
             
@@ -97,7 +112,19 @@ function tri_par_date(){
                   'posts_per_page' => $_POST['nbOfPosts'],                  
                   'order' => $_POST['perDate'],
                   'orderby' => 'meta_value_num ID', // Rangé selon un champ personnalisé, puis par ID
-                  'meta_key' => 'annee', // C'est ici qu'on indique quel est ce champ                     
+                  'meta_key' => 'annee', // C'est ici qu'on indique quel est ce champ
+                  'tax_query' => [
+                    [
+                      'taxonomy' => 'categorie',
+                      'field' => 'slug',
+                      'terms' => $_POST['categorie'],
+                    ],
+                    [
+                      'taxonomy' => 'format',
+                      'field' => 'slug',
+                      'terms' => $_POST['format'],
+                    ]
+                  ]                             
               );
               // 2. On exécute la WP Query
               $ajaxPosts = new WP_Query( $args2 );
@@ -113,13 +140,107 @@ function tri_par_date(){
                 </div>
               <?php
               }else{
-                    $response = '';
+                    $response = '<div class="catalogue-photo-container"></div>';
                   }
                   echo $response;
                   exit;
+                  wp_reset_postdata();
 }
 
+/**** Fonction filtre par catégorie ****/
 
+add_action( 'wp_ajax_filtre_categorie', 'filtre_categorie' );
+add_action( 'wp_ajax_nopriv_filtre_categorie', 'filtre_categorie' );
 
+function filtre_categorie(){
+            
+              // 1. On définit les arguments pour définir ce que l'on souhaite récupérer
+              $args2 = array(
+                  'post_type' => 'photos',
+                  'posts_per_page' => $_POST['nbOfPosts'],                  
+                  'order' => $_POST['perDate'],
+                  'orderby' => 'meta_value_num ID', // Rangé selon un champ personnalisé, puis par ID
+                  'meta_key' => 'annee', // C'est ici qu'on indique quel est ce champ     
+                  'tax_query' => [
+                    [
+                      'taxonomy' => 'categorie',
+                      'field' => 'slug',
+                      'terms' => $_POST['categorie'],
+                    ],
+                    [
+                      'taxonomy' => 'format',
+                      'field' => 'slug',
+                      'terms' => $_POST['format'],
+                    ]
+                  ]                
+              );
+              // 2. On exécute la WP Query
+              $ajaxPosts = new WP_Query( $args2 );
+              $response = '';
+              // 3. Boucle   
+              if( $ajaxPosts->have_posts() ) {?>
+                <div class="catalogue-photo-container">
+                    <?php 
+                      while( $ajaxPosts->have_posts() ) : $ajaxPosts->the_post();
+                        $response .= get_template_part('template-parts/photo_block');
+                      endwhile;
+                      ?>
+                </div>
+              <?php
+              }else{
+                    $response = '<div class="catalogue-photo-container"></div>';
+                  }
+                  echo $response;
+                  exit;
+                  wp_reset_postdata();
+}
+
+/**** Fonction filtre par format ****/
+
+add_action( 'wp_ajax_filtre_format', 'filtre_format' );
+add_action( 'wp_ajax_nopriv_filtre_format', 'filtre_format' );
+
+function filtre_format(){
+            
+              // 1. On définit les arguments pour définir ce que l'on souhaite récupérer
+              $args2 = array(
+                  'post_type' => 'photos',
+                  'posts_per_page' => $_POST['nbOfPosts'],                  
+                  'order' => $_POST['perDate'],
+                  'orderby' => 'meta_value_num ID', // Rangé selon un champ personnalisé, puis par ID
+                  'meta_key' => 'annee', // C'est ici qu'on indique quel est ce champ     
+                  'tax_query' => [
+                    [
+                      'taxonomy' => 'categorie',
+                      'field' => 'slug',
+                      'terms' => $_POST['categorie'],
+                    ],
+                    [
+                      'taxonomy' => 'format',
+                      'field' => 'slug',
+                      'terms' => $_POST['format'],
+                    ]
+                  ]                
+              );
+              // 2. On exécute la WP Query
+              $ajaxPosts = new WP_Query( $args2 );
+              $response = '';
+              // 3. Boucle   
+              if( $ajaxPosts->have_posts() ) {?>
+                <div class="catalogue-photo-container">
+                    <?php 
+                      while( $ajaxPosts->have_posts() ) : $ajaxPosts->the_post();
+                        $response .= get_template_part('template-parts/photo_block');
+                      endwhile;
+                      ?>
+                </div>
+              <?php
+              }else{
+                $response = '<div class="catalogue-photo-container"></div>';
+              }
+                  echo $response;
+                  exit;
+                  wp_reset_postdata();
+}
 ?>
 
