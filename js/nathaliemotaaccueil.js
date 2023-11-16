@@ -48,9 +48,15 @@
     // Tri des photos par date
 
     $(document).ready(function() {
-        $("#tri-date-slct").change(function(){
-            perDate=$('#tri-date-slct option:selected').val();
+        $("#tri-date-slct div").click(function(){
+            perDate=(this.id);
+            let selectLabel=$(this).html();
+            $("#tri-date-text").html(selectLabel);
             $('input[name=order-date]').val(perDate);
+            $("#tri-date-slct div").removeClass("div-selected");
+            $(this).addClass("div-selected");
+            $("#tri-date-label").removeClass("select-selected");
+            $("#tri-date-slct").removeClass("slct-open");
             $.ajax({
                 type: 'POST',
                 url: nathaliemotaaccueil_js.ajax_url,
@@ -72,12 +78,15 @@
 
     // Filtre selon catégorie
     $(document).ready(function(){
-        $("#categorie-slct").change(function(){
-            categorie = $('#categorie-slct option:selected').val();
+        $("#categorie-slct div").click(function(){
+            categorie = (this.id);
+            $("#categorie-label-text").html(categorie);
             $('input[name=categorie]').val(categorie);
             categorie = categorie.split(re);
-            console.log(categorie);
-            console.log(format);
+            $("#categorie-slct div").removeClass("div-selected");
+            $(this).addClass("div-selected");
+            $("#categorie-label").removeClass("select-selected");
+            $("#categorie-slct").removeClass("slct-open");
             $.ajax({
                 type: 'POST',
                 url: nathaliemotaaccueil_js.ajax_url,
@@ -99,11 +108,17 @@
 
     // Filtre selon format
     $(document).ready(function(){
-        $("#format-slct").change(function(){
-            format = $('#format-slct option:selected').val();
+        $("#format-slct div").click(function(){
+            format = (this.id);
+            console.log(format);
+            $("#format-label-text").html(format);
             $('input[name=format]').val(format);
             format= format.split(re);
             console.log(format);
+            $("#format-slct div").removeClass("div-selected");
+            $(this).addClass("div-selected");
+            $("#format-label").removeClass("select-selected");
+            $("#format-slct").removeClass("slct-open");
             $.ajax({
                 type: 'POST',
                 url: nathaliemotaaccueil_js.ajax_url,
@@ -124,3 +139,47 @@
     });
 })(jQuery);
 
+// Ouverture des listes déroulantes pour tri par date
+let selectDate = document.getElementById("tri-date-label");
+let listDate = document.getElementById("tri-date-slct");
+let triDateDiv = document.getElementById("tri-selects-div");
+
+selectDate.onmouseover = function() {
+    listDate.classList.add("slct-open");
+    selectDate.classList.add("select-selected");
+}
+// Fermeture 
+triDateDiv.onmouseleave = function() { 
+        listDate.classList.remove("slct-open"); 
+        selectDate.classList.remove("select-selected");       
+}
+// Ouverture des listes déroulantes pour filtre formats
+let selectFormat = document.getElementById("format-label");
+let listFormat = document.getElementById("format-slct");
+let formatDiv = document.getElementById("format-select-wrapp");
+
+
+formatDiv.onmouseover = function() {
+    listFormat.classList.add("slct-open");
+    selectFormat.classList.add("select-selected");
+}
+// Fermeture 
+formatDiv.onmouseleave = function() { 
+        listFormat.classList.remove("slct-open"); 
+        selectFormat.classList.remove("select-selected");       
+}
+// Ouverture des listes déroulantes pour filtre catégories
+let selectCategorie = document.getElementById("categorie-label");
+let listCategorie = document.getElementById("categorie-slct");
+let categorieDiv = document.getElementById("categorie-select-wrapp");
+
+
+categorieDiv.onmouseover = function() {
+    listCategorie.classList.add("slct-open");
+    selectCategorie.classList.add("select-selected");
+}
+// Fermeture 
+categorieDiv.onmouseleave = function() { 
+        listCategorie.classList.remove("slct-open"); 
+        selectCategorie.classList.remove("select-selected");       
+}

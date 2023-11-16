@@ -27,8 +27,7 @@ get_header();
         </div>
     </div>
     <div id="catalogue-container">
-            <div id="selects-div">
-               
+            <div id="selects-div">               
                 <div id="tax-selects-div">
                 <?php   $categorie_list = get_terms('categorie');
                         $format_list = get_terms('format');
@@ -43,32 +42,36 @@ get_header();
                         }
                         $categorieTypes = rtrim($types, ', ');
                 ?>      
-                    <select name="categorie-select" id="categorie-slct">
-                                    <option value="<?php echo $categorieTypes; ?>">Catégories</option>
-                        <?php   foreach($categorie_list as $categorie_single) {
-                        ?>
-                                    <option value = "<?php echo $categorie_single->name?>"><?php echo $categorie_single->name?></option>
-                        <?php
+                    
+                    <div id="categorie-select-wrapp">
+                        <div id="categorie-label" class="label-select"><div id="categorie-label-text">Catégories</div><img src="<?php echo get_template_directory_uri() . '/assets/images/chevron.png';?>" alt="image d'un chevron" ></div>
+                        <div id="categorie-slct" class="div-hide select">
+                             <?php   foreach($categorie_list as $categorie_single) {
+                            ?>
+                                <div id="<?php echo $categorie_single->name?>"><?php echo $categorie_single->name?></div>
+                            <?php
                                 }
-                        ?>
-                    </select>
-                    <select name="format-select" id="format-slct">
-                                    <option value="<?php echo $formatTypes; ?>">Formats</option>
-                        <?php   foreach($format_list as $format_single) {
-                        ?>
-                                    <option value = "<?php echo $format_single->name?>"><?php echo $format_single->name?></option>
-                        <?php
+                            ?>
+                        </div>
+                    </div>
+                    <div id="format-select-wrapp">
+                        <div id="format-label" class="label-select"><div id="format-label-text">Formats</div><img src="<?php echo get_template_directory_uri() . '/assets/images/chevron.png';?>" alt="image d'un chevron" ></div>
+                        <div id="format-slct" class="div-hide select">
+                             <?php   foreach($format_list as $format_single) {
+                            ?>
+                                <div id="<?php echo $format_single->name?>"><?php echo $format_single->name?></div>
+                            <?php
                                 }
-                        ?>
-                    </select>
+                            ?>
+                        </div>
+                    </div>
                 </div>
                 <div id="tri-selects-div">
-                    
-                        <select name="tri-date-select" id="tri-date-slct">
-                        <option value="DESC">Trier par</option>
-                        <option value="DESC">Des plus récentes aux plus anciennes</option>
-                        <option value="ASC">Des plus anciennes aux plus récentes</option>
-                        </select> 
+                        <div id="tri-date-label" class="label-select"><div id="tri-date-text">Trier par</div><img src="<?php echo get_template_directory_uri() . '/assets/images/chevron.png';?>" alt="image d'un chevron" ></div>
+                        <div id="tri-date-slct" class="div-hide select">
+                            <div id="DESC">Date décroissante</div>
+                            <div id="ASC">Date croissante</div>
+                        </div>
                     
                 </div>
             </div>

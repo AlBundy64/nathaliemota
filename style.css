@@ -457,16 +457,90 @@ body {
   display: flex;
   flex-direction: column;
   width: 80%;
+  padding: 40px;
+  align-items: center;
 }
-#accueil-container #catalogue-container .catalogue-photo-container {
+#accueil-container #catalogue-container .div-hide {
+  display: none;
+}
+#accueil-container #catalogue-container #selects-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  font-family: Poppins;
+  font-weight: 500;
+  font-size: 12px;
+  color: #313144;
+  padding-top: 40px;
+}
+#accueil-container #catalogue-container #selects-div #tax-selects-div {
+  display: flex;
+  flex-direction: row;
+  gap: 36px;
+}
+#accueil-container #catalogue-container #selects-div #tri-select-div {
+  position: relative;
+}
+#accueil-container #catalogue-container #selects-div .slct-open {
+  display: block;
+}
+#accueil-container #catalogue-container #selects-div .label-select {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 260px;
+  height: 41px;
+  box-sizing: border-box;
+  padding: 11px 18px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1.3px solid #B8BBC2;
+  text-transform: uppercase;
+  cursor: default;
+}
+#accueil-container #catalogue-container #selects-div .select-selected {
+  border: 1.3px solid #215AFF;
+  border-radius: 8px 8px 0px 0px;
+}
+#accueil-container #catalogue-container #selects-div .select-selected img {
+  transform: rotate(180deg);
+}
+#accueil-container #catalogue-container #selects-div .select {
+  z-index: 1;
+  position: absolute;
+  background-color: #ffffff;
+  cursor: pointer;
+}
+#accueil-container #catalogue-container #selects-div .select div {
+  width: 260px;
+  box-sizing: border-box;
+  padding: 11px 24px 11px 24px;
+  cursor: pointer;
+}
+#accueil-container #catalogue-container #selects-div .select div:hover {
+  background-color: #FFD6D6;
+}
+#accueil-container #catalogue-container #selects-div .select div:active {
+  background-color: #FE5858;
+}
+#accueil-container #catalogue-container #selects-div .select .div-selected {
+  background-color: #E00000;
+  color: #ffffff;
+}
+#accueil-container #catalogue-container #global-catalogue-container {
+  width: 100%;
+}
+#accueil-container #catalogue-container #global-catalogue-container .catalogue-photo-container {
   width: 100%;
   display: flex;
   flex-direction: row;
-  gap: 20px 1.75%;
+  justify-content: space-between;
+  gap: 20px 0px;
   flex-wrap: wrap;
+  padding: 40px 0px;
 }
-
-/**** Test ****/
-#div-for-ajax {
-  display: none;
+#accueil-container #catalogue-container #loadmore {
+  width: 272px;
+  height: 50px;
 }
