@@ -139,47 +139,52 @@
     });
 })(jQuery);
 
-// Ouverture des listes déroulantes pour tri par date
+// Ouverture et fermeture des listes déroulantes pour tri par date
 let selectDate = document.getElementById("tri-date-label");
+let selectDateDiv = document.querySelector("#tri-date-label div");
+let selectDateImg = document.querySelector("#tri-date-label img");
 let listDate = document.getElementById("tri-date-slct");
 let triDateDiv = document.getElementById("tri-selects-div");
-
-selectDate.onmouseover = function() {
-    listDate.classList.add("slct-open");
-    selectDate.classList.add("select-selected");
-}
-// Fermeture 
-triDateDiv.onmouseleave = function() { 
-        listDate.classList.remove("slct-open"); 
-        selectDate.classList.remove("select-selected");       
-}
-// Ouverture des listes déroulantes pour filtre formats
 let selectFormat = document.getElementById("format-label");
 let listFormat = document.getElementById("format-slct");
-let formatDiv = document.getElementById("format-select-wrapp");
-
-
-formatDiv.onmouseover = function() {
-    listFormat.classList.add("slct-open");
-    selectFormat.classList.add("select-selected");
-}
-// Fermeture 
-formatDiv.onmouseleave = function() { 
-        listFormat.classList.remove("slct-open"); 
-        selectFormat.classList.remove("select-selected");       
-}
-// Ouverture des listes déroulantes pour filtre catégories
+let selectFormatDiv = document.querySelector("#format-label div");
+let selectFormatImg = document.querySelector("#format-label img");
 let selectCategorie = document.getElementById("categorie-label");
 let listCategorie = document.getElementById("categorie-slct");
-let categorieDiv = document.getElementById("categorie-select-wrapp");
+let selectCategorieDiv = document.querySelector("#categorie-label div");
+let selectCategorieImg = document.querySelector("#categorie-label img");
+console.log(selectCategorieDiv);
+console.log(selectCategorie);
 
 
-categorieDiv.onmouseover = function() {
-    listCategorie.classList.add("slct-open");
-    selectCategorie.classList.add("select-selected");
+window.onclick = function(e) {    
+    if(e.target != selectFormat && e.target != selectFormatDiv && e.target != selectFormatImg){
+        listFormat.classList.remove("slct-open");
+        selectFormat.classList.remove("select-selected");
+        console.log('!form');
+    }else{
+        console.log('click-form');
+        listFormat.classList.toggle("slct-open");
+        selectFormat.classList.toggle("select-selected");
+    }  
+    if(e.target != selectCategorie && e.target != selectCategorieDiv && e.target != selectCategorieImg){
+        listCategorie.classList.remove("slct-open");
+        selectCategorie.classList.remove("select-selected");
+        console.log('!cat');
+    }else{
+        console.log('click-cat');
+        listCategorie.classList.toggle("slct-open");
+        selectCategorie.classList.toggle("select-selected");
+    }      
+    if(e.target != selectDate && e.target != selectDateDiv && e.target != selectDateImg){
+        listDate.classList.remove("slct-open");
+        selectDate.classList.remove("select-selected");
+        console.log('!date');
+    }else{
+        console.log('click-date');
+        listDate.classList.toggle("slct-open");
+        selectDate.classList.toggle("select-selected");
+    }     
 }
-// Fermeture 
-categorieDiv.onmouseleave = function() { 
-        listCategorie.classList.remove("slct-open"); 
-        selectCategorie.classList.remove("select-selected");       
-}
+
+
