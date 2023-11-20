@@ -3,6 +3,8 @@
 function nathaliemota_register_assets(){
     wp_enqueue_style( 'nathaliemota',  get_stylesheet_uri(), array(), '1.0' );
     wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/script.js', array(), false, true );
+    wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/js/lightbox.js', array(), false, true );
+
 
 
 if (is_front_page()){

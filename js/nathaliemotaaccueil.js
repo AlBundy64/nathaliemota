@@ -139,7 +139,7 @@
     });
 })(jQuery);
 
-// Ouverture et fermeture des listes déroulantes pour tri par date
+// Ouverture et fermeture des listes déroulantes 
 let selectDate = document.getElementById("tri-date-label");
 let selectDateDiv = document.querySelector("#tri-date-label div");
 let selectDateImg = document.querySelector("#tri-date-label img");
@@ -153,8 +153,6 @@ let selectCategorie = document.getElementById("categorie-label");
 let listCategorie = document.getElementById("categorie-slct");
 let selectCategorieDiv = document.querySelector("#categorie-label div");
 let selectCategorieImg = document.querySelector("#categorie-label img");
-console.log(selectCategorieDiv);
-console.log(selectCategorie);
 
 
 window.onclick = function(e) {    

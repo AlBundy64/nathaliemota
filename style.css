@@ -411,12 +411,85 @@ body {
   max-width: 49%;
   width: 40vw;
   aspect-ratio: 564/495;
+  position: relative;
 }
 .photo-container img {
   -o-object-fit: cover;
      object-fit: cover;
   width: 100%;
   height: 100%;
+  display: block;
+}
+.photo-container .hover {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  opacity: 0;
+  transition: 500ms ease;
+}
+.photo-container .hover:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.photo-container .hover .lien-lightbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  width: 100%;
+  height: 20%;
+}
+.photo-container .hover .lien-lightbox div {
+  height: 30%;
+  aspect-ratio: 1/1;
+  margin: 10px 10px 0px 0px;
+}
+.photo-container .hover .lien-lightbox div img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+.photo-container .hover .lien-photo {
+  display: flex;
+  width: 100%;
+  height: 60%;
+}
+.photo-container .hover .lien-photo div {
+  height: 15%;
+  aspect-ratio: 1/1;
+  margin: auto;
+}
+.photo-container .hover .lien-photo div img {
+  -o-object-fit: contain;
+     object-fit: contain;
+  height: 100%;
+  width: 100%;
+}
+.photo-container .hover .infos {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  height: 20%;
+  color: #ffffff;
+  width: 100%;
+}
+.photo-container .hover .infos div {
+  margin: 20px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.photo-container .hover .infos .ref-div {
+  font-family: Poppins;
+  font-weight: 500;
+}
+.photo-container .hover .infos .cat-div {
+  font-family: SpaceMono;
 }
 
 /**** Accueil ****/
@@ -497,7 +570,7 @@ body {
   border-radius: 8px;
   border: 1.3px solid #B8BBC2;
   text-transform: uppercase;
-  cursor: default;
+  cursor: pointer;
 }
 #accueil-container #catalogue-container #selects-div .select-selected {
   border: 1.3px solid #215AFF;
@@ -510,7 +583,6 @@ body {
   z-index: 1;
   position: absolute;
   background-color: #ffffff;
-  cursor: pointer;
 }
 #accueil-container #catalogue-container #selects-div .select div {
   width: 260px;
@@ -543,4 +615,73 @@ body {
 #accueil-container #catalogue-container #loadmore {
   width: 272px;
   height: 50px;
+}
+
+/**** Light box ****/
+.lightbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.lightbox .lightbox__next, .lightbox .lightbox__prev {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  color: #ffffff;
+  margin: 50vh 0;
+  width: 130px;
+  z-index: 11;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 300ms ease-out;
+}
+.lightbox .lightbox__next .arrow, .lightbox .lightbox__prev .arrow {
+  border: none;
+  background: url(assets/images/nav-arrow.svg) center center/100% 100%;
+  width: 25px;
+  height: 18px;
+  margin: 0px 10px;
+  transition: 300ms ease-out;
+}
+.lightbox .lightbox__next:hover, .lightbox .lightbox__prev:hover {
+  font-weight: 700;
+}
+.lightbox .lightbox__next:hover .arrow, .lightbox .lightbox__prev:hover .arrow {
+  background: url(assets/images/big-nav-arrow.svg) center center/100% 100%;
+  width: 34px;
+}
+.lightbox .lightbox__prev {
+  justify-content: end;
+}
+.lightbox .lightbox__prev .arrow {
+  transform: rotate(180deg);
+}
+.lightbox .lightbox__close {
+  color: #ffffff;
+  position: fixed;
+  top: 40px;
+  right: 40px;
+  z-index: 11;
+  cursor: pointer;
+  background: url(assets/images/close.svg) center center/100% 100%;
+  width: 25px;
+  height: 18px;
+  margin: 0px 10px;
+}
+.lightbox .lightbox__container {
+  z-index: 11;
+  overflow: auto;
+  margin: 0 20px;
+  max-width: 75vw;
+}
+.lightbox .lightbox__container img {
+  max-width: 100%;
+  height: auto;
 }

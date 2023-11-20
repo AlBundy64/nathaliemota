@@ -41,6 +41,7 @@ get_header();
                             $types .= ($categorie_single->name).', ';
                         }
                         $categorieTypes = rtrim($types, ', ');
+                        $reference=get_field('reference');
                 ?>      
                     
                     <div id="categorie-select-wrapp">

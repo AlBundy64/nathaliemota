@@ -1,5 +1,6 @@
             <footer>
                 <?php get_template_part( 'template-parts/modale-contact' );?>
+                <?php get_template_part( 'template-parts/lightbox' );?>
                 <?php
                 wp_nav_menu(
                 array(
