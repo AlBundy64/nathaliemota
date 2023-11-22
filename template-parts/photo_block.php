@@ -12,8 +12,25 @@
                     $categorie = rtrim($types, ', ');
                     $post_slug = get_post_field( 'post_name', get_post() );
             ?>
-            <div class="lien-lightbox"><div><img src="<?php echo get_template_directory_uri() . '/assets/images/icon-fullscreen.png';?>" alt="icone lien lightbox"></div></div>
-            <div class="lien-photo"><div><a href="http://localhost/nathalie-mota/photos/<?php echo $post_slug;?>"><img src="<?php echo get_template_directory_uri() . '/assets/images/icon-eye.png';?>" alt="icone lien page photo"></a></div></div>
-            <div class="infos"><div class="ref-div"><?php echo $reference; ?></div><div class="cat-div"><?php echo $categorie; ?></div></div>
+            <div class="lien-lightbox">
+                <div class="button-lightbox">
+                    <a href="<?php echo get_the_post_thumbnail_url();?>">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-fullscreen.png';?>" alt="icone lien lightbox">
+                    </a>
+                </div>
+            </div>
+            <div class="lien-photo">
+                <div>
+                    <a href="http://localhost/nathalie-mota/photos/<?php echo $post_slug;?>">
+                        <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-eye.png';?>" alt="icone lien page photo">
+                    </a>
+                </div>
+            </div>
+            <div class="infos">
+                <div class="ref-div"><?php echo $reference; ?>
+                </div>
+                <div class="cat-div"><?php echo $categorie; ?>
+                </div>
+            </div>
         </div>
     </div>

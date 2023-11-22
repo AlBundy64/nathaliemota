@@ -166,7 +166,7 @@ get_header();
             $my_query = new WP_Query( $args3 );
             ?>
 
-          <div id="photos-apparantees">
+          <div id="photos-apparentees">
             <h2>Vous aimerez aussi</h2>
             <div class="photo-bloc-dbl">
             <?php
