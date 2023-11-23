@@ -49,6 +49,15 @@ get_header();
             <!-- Bloc photo -->
             <div id="photo-bloc">
               <?php the_post_thumbnail();?>
+              <div class="hover">
+                <div class="lien-lightbox">
+                  <div class="button-lightbox">
+                      <a href="<?php echo get_the_post_thumbnail_url();?>">
+                          <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-fullscreen.png';?>" alt="icone lien lightbox">
+                      </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div> 
           <!-- Bloc cta et nav -->

@@ -12,6 +12,9 @@
             <div id="nav-bar">
                 <img id="logo-nav" src= "<?php echo get_template_directory_uri() . '/assets/images/logo.png';?>" alt="logo du site Nathalie Mota">
                 <nav id="navigation">
+                    <button class="menu-toggle">
+                        <img id="icon-menu" src= "<?php echo get_template_directory_uri() . '/assets/images/icon-menu.png';?>" alt="icone du menu">
+                    </button>
                     <?php
                     wp_nav_menu(
                     array(
