@@ -33,7 +33,7 @@ get_header();
 
         ?>
 
-        <div class="post-content">
+        <div class="post-content for-lightbox-content">
           <div class="info-photo-bloc">
             <!-- Bloc infos -->
             <div id="info-bloc">
@@ -47,16 +47,20 @@ get_header();
                 </p>
             </div>
             <!-- Bloc photo -->
-            <div id="photo-bloc">
+            <div id="photo-bloc" class="photo-for-lightbox">
               <?php the_post_thumbnail();?>
               <div class="hover">
                 <div class="lien-lightbox">
-                  <div class="button-lightbox">
-                      <a href="<?php echo get_the_post_thumbnail_url();?>">
+                  <div class="button-lightbox">                      
                           <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-fullscreen.png';?>" alt="icone lien lightbox">
-                      </a>
                   </div>
                 </div>
+                <div class="infos">
+                <div class="ref-div ref-for-lightbox"><?php echo $reference; ?>
+                </div>
+                <div class="cat-div cat-for-lightbox"><?php echo $categorie; ?>
+                </div>
+            </div>
               </div>
             </div>
           </div> 

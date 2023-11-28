@@ -2,7 +2,7 @@
 /**** Ressources JS et CSS *****/
 function nathaliemota_register_assets(){
     wp_enqueue_style( 'nathaliemota',  get_stylesheet_uri(), array(), '1.0' );
-    wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/script.js', array(), false, true );
+    wp_enqueue_script( 'scripts', get_template_directory_uri() . '/js/script.js', array('jquery'), false, true );
     wp_enqueue_script( 'lightbox', get_template_directory_uri() . '/js/lightbox.js', array(), false, true );
 
 
@@ -14,6 +14,7 @@ if (is_front_page()){
 }
 
 add_action( 'wp_enqueue_scripts', 'nathaliemota_register_assets' );
+
 
 /**** On diffère le script****/
 function add_defer_attribute($tag, $handle) {

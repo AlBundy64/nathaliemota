@@ -76,7 +76,7 @@ get_header();
                     
                 </div>
             </div>
-            <div id="global-catalogue-container">
+            <div id="global-catalogue-container" class="for-lightbox-content">
                 <!-- Affichage des photos du catalogue -->
                 <?php 
                 $perDate= 'DESC'; // Ordre des photos selon leur date de prise de vue

@@ -155,7 +155,7 @@ let selectCategorieDiv = document.querySelector("#categorie-label div");
 let selectCategorieImg = document.querySelector("#categorie-label img");
 
 
-window.onclick = function(e) {    
+window.onclick = function (e) {    
     if(e.target != selectFormat && e.target != selectFormatDiv && e.target != selectFormatImg){
         listFormat.classList.remove("slct-open");
         selectFormat.classList.remove("select-selected");

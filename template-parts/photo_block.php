@@ -1,5 +1,5 @@
 
-    <div class="photo-container">
+    <div class="photo-container photo-for-lightbox">
         <?php the_post_thumbnail();?>
         <div class="hover">
             <?php   
@@ -13,10 +13,8 @@
                     $post_slug = get_post_field( 'post_name', get_post() );
             ?>
             <div class="lien-lightbox">
-                <div class="button-lightbox">
-                    <a href="<?php echo get_the_post_thumbnail_url();?>">
+                <div class="button-lightbox">                    
                         <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-fullscreen.png';?>" alt="icone lien lightbox">
-                    </a>
                 </div>
             </div>
             <div class="lien-photo">
@@ -27,9 +25,9 @@
                 </div>
             </div>
             <div class="infos">
-                <div class="ref-div"><?php echo $reference; ?>
+                <div class="ref-div ref-for-lightbox"><?php echo $reference; ?>
                 </div>
-                <div class="cat-div"><?php echo $categorie; ?>
+                <div class="cat-div cat-for-lightbox"><?php echo $categorie; ?>
                 </div>
             </div>
         </div>

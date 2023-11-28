@@ -12,11 +12,13 @@ btn.onclick = function() {
 }
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
+let footer = document.getElementById('footer')
+footer.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
 }
+
 
 // Modale depuis le bouton de contact de single-photos
 // Get the button that opens the modal
@@ -79,13 +81,68 @@ const contactBtn = document.getElementById('contact-btn');
 menuToggle.addEventListener('click',function(){
     menuToggle.classList.toggle("menu-toggle-open");
     divLiensMenu.classList.toggle('menu-open');
-})
+});
 
 contactBtn.addEventListener('click', function(){
+    menuToggle.classList.remove("menu-toggle-open");
     divLiensMenu.classList.remove('menu-open');
-})
+});
 
+// lightbox
 
+(function($){
+    $(".for-lightbox-content").on("click", ".button-lightbox ", function(e){
+        document.querySelector('.lightbox').classList.remove("lightbox-hidden");
+        const lightboxLinks = Array.from(document.querySelectorAll('.button-lightbox > img'));        
+        const lightboxPhotos = Array.from(document.querySelectorAll('.photo-for-lightbox > img'));
+        const lightboxReferences = Array.from(document.querySelectorAll('.photo-for-lightbox .ref-for-lightbox'));
+        const lightboxCategories = Array.from(document.querySelectorAll('.photo-for-lightbox .cat-div'));
+        let indexArrays = lightboxLinks.indexOf(e.target);   
+
+        function afficherLightbox (){
+            let lightboxPhoto = lightboxPhotos[indexArrays];
+            
+            let photo = document.createElement('img');
+            document.querySelector('.lightbox__container').innerHTML='';
+            document.querySelector('.lightbox__container').appendChild(photo);
+            photo.src=lightboxPhoto.src;
+
+            let lightboxRef = lightboxReferences[indexArrays];
+            document.querySelector('.lightbox-ref-div').innerHTML='';
+            document.querySelector('.lightbox-ref-div').innerHTML = lightboxRef.innerHTML;
+
+            let lightboxCat = lightboxCategories[indexArrays];
+            document.querySelector('.lightbox-cat-div').innerHTML='';
+            document.querySelector('.lightbox-cat-div').innerHTML = lightboxCat.innerHTML;
+        }
+        afficherLightbox();
+
+        const lightboxNext = document.querySelector('.lightbox__next');
+        lightboxNext.addEventListener('click', function(){
+            if (indexArrays === lightboxLinks.length -1){
+                indexArrays = -1;
+            }
+            indexArrays = indexArrays + 1;
+            afficherLightbox();
+        })
+
+        const lightboxPrev = document.querySelector('.lightbox__prev');
+        lightboxPrev.addEventListener('click', function(){
+            if (indexArrays === 0){
+                indexArrays = lightboxLinks.length
+            }
+            indexArrays = indexArrays - 1;
+            afficherLightbox();
+        })
+    
+    })
+    
+    document.querySelector('.lightbox__close').onclick = function (){
+        document.querySelector('.lightbox').classList.add("lightbox-hidden");
+    }
+    
+}
+)(jQuery);
 
 
 
