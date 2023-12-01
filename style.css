@@ -923,6 +923,8 @@ header {
   z-index: 1;
   position: absolute;
   background-color: #ffffff;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
 }
 #accueil-container #catalogue-container #selects-div .select div {
   width: 260px;
@@ -1094,11 +1096,20 @@ header {
   width: 25vw;
   justify-content: space-between;
   align-items: center;
+  text-transform: uppercase;
+  font-size: 14px;
 }
 @media (max-width: 769px) {
   .lightbox .lightbox-infos {
     width: 45vw;
   }
+}
+.lightbox .lightbox-infos .lightbox-ref-div {
+  font-family: Poppins;
+  font-weight: 500;
+}
+.lightbox .lightbox-infos .lightbox-cat-div {
+  font-family: SpaceMono;
 }
 
 .lightbox-hidden {
