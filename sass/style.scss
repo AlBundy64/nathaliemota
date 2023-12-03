@@ -80,6 +80,37 @@ body{
     src: url('assets/fonts/Poppins-Medium.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
   }
 
+/***** Animations ****/
+/**** Fade-in Modale mobile ****/
+@keyframes fade-in {
+    0%{
+        left: 100vw;
+    }
+    100%{
+        left: 0vw;
+    }
+}
+/**** Animation boutons ****/
+@keyframes btn{
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+/**** Animation listes déroulantes ****/
+@keyframes selects-anim {
+    0%{
+        transform: scaleY(0);
+        opacity: 0;
+    }
+    100%{
+        transform: scaleY(1);
+        opacity: 1;
+    }
+}
+
 
 /*****Header*****/
 header{
@@ -185,19 +216,20 @@ header{
                 }
             }
             @media (max-width: 769px) {
-                display: none;                
-            }
-        }
-        .menu-open{
-            @media (max-width: 769px) {
                 display: flex;
                 position: fixed;
                 z-index: 2;
                 width: 100%;
                 height: 100%;
-                left: 0;
+                left: 100vw;
                 top: 72px;
-                background-color: #E00000;
+                background-color: #E00000;   
+                transition: left 1s;           
+            }
+        }
+        .menu-open{
+            @media (max-width: 769px) {
+                left: 0vw;
             }
         }
     }
@@ -255,6 +287,8 @@ header{
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     @media (max-width: 769px) {
         z-index: 9999;
+        left: 100vw;
+        animation: fade-in 1s both;
     }
     .modal-content{
         width: 600px;
@@ -322,16 +356,8 @@ header{
     }
 }
 
-/*****Animation et comportements boutons ****/
+/*****Comportements boutons ****/
 
-@keyframes btn{
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
 .btn{
     border-radius: 2px;
     height: 50px;
@@ -812,6 +838,8 @@ header{
             }
             .slct-open{
                 display: block;
+                transform-origin: top;
+                animation: selects-anim 500ms;
             }
             .label-select{
                 display: flex;
@@ -835,6 +863,7 @@ header{
                 border-radius: 8px 8px 0px 0px;
                 img{
                     transform: rotate(180deg);
+                    transition: transform 500ms;
                 }
             }
             .select{
@@ -842,7 +871,7 @@ header{
                 position: absolute;
                 background-color: #ffffff;
                 border-radius: 0 0 8px 8px;
-                overflow: hidden;
+                overflow: hidden;                
                 div{
                     width: 260px;
                     box-sizing: border-box;

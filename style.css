@@ -80,6 +80,36 @@ body {
   font-weight: 500;
   src: url("assets/fonts/Poppins-Medium.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+/***** Animations ****/
+/**** Fade-in Modale mobile ****/
+@keyframes fade-in {
+  0% {
+    left: 100vw;
+  }
+  100% {
+    left: 0vw;
+  }
+}
+/**** Animation boutons ****/
+@keyframes btn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/**** Animation listes déroulantes ****/
+@keyframes selects-anim {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
 /*****Header*****/
 header {
   background-color: #ffffff;
@@ -201,19 +231,20 @@ header {
 }
 @media (max-width: 769px) {
   #nav-bar #navigation .menu-menu-header-container {
-    display: none;
-  }
-}
-@media (max-width: 769px) {
-  #nav-bar #navigation .menu-open {
     display: flex;
     position: fixed;
     z-index: 2;
     width: 100%;
     height: 100%;
-    left: 0;
+    left: 100vw;
     top: 72px;
     background-color: #E00000;
+    transition: left 1s;
+  }
+}
+@media (max-width: 769px) {
+  #nav-bar #navigation .menu-open {
+    left: 0vw;
   }
 }
 
@@ -270,6 +301,8 @@ header {
 @media (max-width: 769px) {
   #contact-modal {
     z-index: 9999;
+    left: 100vw;
+    animation: fade-in 1s both;
   }
 }
 #contact-modal .modal-content {
@@ -346,15 +379,7 @@ header {
   }
 }
 
-/*****Animation et comportements boutons ****/
-@keyframes btn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
+/*****Comportements boutons ****/
 .btn {
   border-radius: 2px;
   height: 50px;
@@ -892,6 +917,8 @@ header {
 }
 #accueil-container #catalogue-container #selects-div .slct-open {
   display: block;
+  transform-origin: top;
+  animation: selects-anim 500ms;
 }
 #accueil-container #catalogue-container #selects-div .label-select {
   display: flex;
@@ -918,6 +945,7 @@ header {
 }
 #accueil-container #catalogue-container #selects-div .select-selected img {
   transform: rotate(180deg);
+  transition: transform 500ms;
 }
 #accueil-container #catalogue-container #selects-div .select {
   z-index: 1;

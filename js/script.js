@@ -78,9 +78,11 @@ const menuToggle = document.querySelector('.menu-toggle');
 const divLiensMenu = document.querySelector('.menu-menu-header-container');
 const contactBtn = document.getElementById('contact-btn');
 
+
 menuToggle.addEventListener('click',function(){
     menuToggle.classList.toggle("menu-toggle-open");
     divLiensMenu.classList.toggle('menu-open');
+    
 });
 
 contactBtn.addEventListener('click', function(){
