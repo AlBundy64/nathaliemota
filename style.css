@@ -608,7 +608,9 @@ header {
 }
 @media (max-width: 769px) {
   .post-content #photo-cta-bloc #cta-div .btn {
-    flex-direction: column-reverse;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 .post-content #photo-cta-bloc #photo-nav-div {
@@ -835,8 +837,8 @@ header {
 }
 #accueil-container #hero {
   display: flex;
-  width: 100%;
-  aspect-ratio: 1440/962;
+  width: 100vw;
+  height: 67vw;
   position: relative;
 }
 #accueil-container #hero img {
@@ -844,6 +846,7 @@ header {
      object-fit: cover;
   width: 100%;
   height: 100%;
+  display: block;
 }
 #accueil-container #hero #accueil-title-div {
   display: flex;
