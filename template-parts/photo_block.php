@@ -19,7 +19,7 @@
             </div>
             <div class="lien-photo">
                 <div>
-                    <a href="http://localhost/nathalie-mota/photos/<?php echo $post_slug;?>">
+                    <a href="<?php echo esc_url( home_url( '/' ) ); ?>photos/<?php echo $post_slug;?>/">
                         <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-eye.png';?>" alt="icone lien page photo">
                     </a>
                 </div>

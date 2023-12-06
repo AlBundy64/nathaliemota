@@ -10,7 +10,9 @@
     <div class="page">
         <header>
             <div id="nav-bar">
-                <img id="logo-nav" src= "<?php echo get_template_directory_uri() . '/assets/images/logo.png';?>" alt="logo du site Nathalie Mota">
+                <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                    <img id="logo-nav" src= "<?php echo get_template_directory_uri() . '/assets/images/logo.png';?>" alt="logo du site Nathalie Mota">
+                </a>
                 <nav id="navigation">
                     <button class="menu-toggle">
                         <img id="icon-menu" src= "<?php echo get_template_directory_uri() . '/assets/images/icon-menu.png';?>" alt="icone du menu">

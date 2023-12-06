@@ -136,13 +136,17 @@ header {
     z-index: 1000;
   }
 }
-#nav-bar #logo-nav {
+#nav-bar a {
+  display: flex;
+}
+#nav-bar a #logo-nav {
   -o-object-fit: contain;
      object-fit: contain;
   width: 216px;
+  margin: auto;
 }
 @media (max-width: 769px) {
-  #nav-bar #logo-nav {
+  #nav-bar a #logo-nav {
     width: 138px;
   }
 }
@@ -838,7 +842,9 @@ header {
 #accueil-container #hero {
   display: flex;
   width: 100vw;
+  max-width: 1440px;
   height: 67vw;
+  max-height: 962px;
   position: relative;
 }
 #accueil-container #hero img {
@@ -882,6 +888,11 @@ header {
   width: 80%;
   padding: 40px;
   align-items: center;
+}
+@media (max-width: 769px) {
+  #accueil-container #catalogue-container {
+    padding: 0 0 40px 0;
+  }
 }
 #accueil-container #catalogue-container .div-hide {
   display: none;

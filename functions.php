@@ -15,10 +15,10 @@ add_action( 'wp_enqueue_scripts', 'nathaliemota_register_assets' );
   
 /**** Fonts ****/
 
-function google_fonts() {
-  wp_enqueue_style( 'nathaliemota-font', get_stylesheet_uri(), false );
-}
-add_action( 'wp_enqueue_scripts', 'google_fonts' );
+// function google_fonts() {
+//   wp_enqueue_style( 'nathaliemota-font', get_stylesheet_uri(), false );
+// }
+// add_action( 'wp_enqueue_scripts', 'google_fonts' );
 
  /****fonction création menu principal */
 

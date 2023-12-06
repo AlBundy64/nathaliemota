@@ -105,7 +105,7 @@ get_header();
                         if ($id_photo2 == $current_photo_id2 +1 && $id_photo2 != 1){
                           ?>
                           <div id="photo-prev-div" class=""> <?php the_post_thumbnail('thumbnail');?> </div>
-                          <a href="http://localhost/nathalie-mota/photos/<?php echo $post_slug;?>">
+                          <a href="<?php echo esc_url( home_url( '/' ) ); ?>photos/<?php echo $post_slug;?>/">
                             <img src="<?php echo get_template_directory_uri() . '/assets/images/big-nav-arrow-left.png';?>" alt="image d'une fleche de navigation"/>
                           </a>
                           <?php
@@ -141,7 +141,7 @@ get_header();
                         if ($id_photo == $current_photo_id +1 && $id_photo != 1){
                           ?>
                           <div id="photo-next-div" class=""> <?php the_post_thumbnail('thumbnail');?> </div>
-                          <a href="http://localhost/nathalie-mota/photos/<?php echo $post_slug;?>">
+                          <a href="<?php echo esc_url( home_url( '/' ) ); ?>photos/<?php echo $post_slug;?>/">
                             <img src="<?php echo get_template_directory_uri() . '/assets/images/big-nav-arrow-right.png';?>" alt="image d'une fleche de navigation"/>
                           </a>
                           <?php 
@@ -194,7 +194,9 @@ get_header();
             ?>
             </div>
             <div class="charger-div">
-              <button class="btn">Toutes les photos</button>
+              <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+                <button class="btn">Toutes les photos</button>
+              </a>
             </div>
           </div>
         </div>

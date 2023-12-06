@@ -132,11 +132,15 @@ header{
         height: 72px;
         z-index: 1000;
     }
-    #logo-nav{
-        object-fit: contain;
-        width: 216px;
-        @media (max-width: 769px) {
-            width: 138px;
+    a{
+        display: flex;
+        #logo-nav{
+            object-fit: contain;
+            width: 216px;
+            margin: auto;
+            @media (max-width: 769px) {
+                width: 138px;
+            }
         }
     }
     #navigation{
@@ -770,7 +774,9 @@ header{
     #hero{
         display: flex;
         width: 100vw;
+        max-width: 1440px;
         height: 67vw;
+        max-height: 962px;
         position: relative;
         img{
             object-fit: cover;
@@ -809,6 +815,9 @@ header{
         width:80%;
         padding: 40px;
         align-items: center;
+        @media (max-width:769px) {
+        padding: 0 0 40px 0;
+        }
         .div-hide{
             display: none;
         }
